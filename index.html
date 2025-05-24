@@ -1,16 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Secure Access</title>
-    <style>
-        body { background-color: black; color: #00ff00; text-align: center; font-family: "Courier New", monospace; }
-        a { color: #00ff00; text-decoration: none; font-size: 20px; }
-        a:hover { text-decoration: underline; }
-    </style>
-</head>
-<body>
-    <h2>Secure Access Granted</h2>
-    <p>Click below to proceed:</p>
-    <p><a href="https://orson-sander.github.io/secure-module/" target="_self">Proceed to Secure Module</a></p>
-</body>
-</html>
+function openSecureModule() {
+    var win = window.open('about:blank', '_blank');
+    if (win) {
+        win.document.write(`
+            <html>
+            <head>
+                <title>Secure Module</title>
+                <style>
+                    body { background-color: black; color: #00ff00; text-align: center; font-family: "Courier New", monospace; }
+                    a { color: #00ff00; text-decoration: none; font-size: 20px; }
+                    a:hover { text-decoration: underline; }
+                </style>
+            </head>
+            <body>
+                <h2>Secure Access Granted</h2>
+                <p>Click below to proceed:</p>
+                <p><a href="https://orson-sander.github.io/secure-module/" target="_self">Proceed to Secure Module</a></p>
+            </body>
+            </html>
+        `);
+        win.document.close();
+    } else {
+        alert("Popup blocked! Allow popups for this site.");
+    }
+}
